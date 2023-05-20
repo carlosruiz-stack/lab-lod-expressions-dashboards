@@ -1,0 +1,19 @@
+Lab | LOD expressions and Dashboards
+
+{ FIXED [Clnt Age(group)]: AVG([Bal]) }
+
+Create age group using if-else
+
+IF [Age] >= 17 AND [Age] <= 30 THEN "Group 1" END
+IF [Age] >= 31 AND [Age] <= 40 THEN "Group 2" END
+IF [Age] >= 41 AND [Age] <= 55 THEN "Group 3" END
+IF [Age] >= 55 AND [Age] <= 70 THEN "Group 4" END
+IF [Age] >= 71 THEN "Group 5" END
+
+Calculate average balance: 
+
+AVG([Balance])
+
+Calculate the avg. balance difference 
+
+{ FIXED [Client Age]: AVG([Bal]) } - { FIXED [Client Id]: AVG([Bal]) }
