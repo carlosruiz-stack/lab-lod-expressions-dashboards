@@ -1,0 +1,17 @@
+1. Group customers by client age: 
+
+IF [clnt_age] >= 17 AND [clnt_age] <= 30 THEN "Group 1"
+ELSEIF [clnt_age] >= 31 AND [clnt_age] <= 40 THEN "Group 2"
+ELSEIF [clnt_age] >= 41 AND [clnt_age] <= 55 THEN "Group 3"
+ELSEIF [clnt_age] >= 55 AND [clnt_age] <= 70 THEN "Group 4"
+ELSEIF [clnt_age] >= 71 THEN "Group 5"
+
+2. Create a calculated field with LOD expression as { FIXED [clnt_age (group)] : AVG([Bal]) }.
+
+{ FIXED [clnt_age]: AVG([bal]) } 
+
+3. Create another calculated field to store the difference between the average balance for the group and balance 
+for the individual as { FIXED [Client Age]: AVG([Bal]) } - { FIXED [Client Id]: AVG([Bal]) }.
+
+{ FIXED [clnt_age]: AVG([bal]) } - { FIXED [clnt_age]: AVG([bal]) }
+
